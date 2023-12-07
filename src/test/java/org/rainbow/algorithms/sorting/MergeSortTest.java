@@ -9,6 +9,15 @@ class MergeSortTest {
 
     @Test
     void sort_ArrayIsGiven_ReturnSortedArray() {
+        int[] arr = { 5, 4, 3, 2, 1, 5, 4, 3, 2, 1 };
+
+        int[] result = MergeSort.sort(arr);
+
+        assertArrayEquals(new int[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }, result);
+    }
+
+    @Test
+    void sort_ArrayAndIndicesAreGiven_ReturnSortedArray() {
         int[] arr = { 200, 50, 75, 51, 16, 15, 8, 14, 13, 10, 25, 8 };
 
         int[] result = MergeSort.sort(arr, 0, arr.length - 1);

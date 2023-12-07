@@ -1,12 +1,19 @@
 package org.rainbow.algorithms.sorting;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 public final class MergeSort {
 
     private MergeSort() {
     }
 
-    public static int[] sort(int[] arr, int start, int end) {
-        if (arr == null || arr.length == 0) {
+    public static int[] sort(int[] arr) {
+        return ObjectUtils.isNotEmpty(arr) ? sort(arr, 0, arr.length - 1) : arr;
+    }
+
+    // Made package-private for unit testing
+    static int[] sort(int[] arr, int start, int end) {
+        if (ObjectUtils.isEmpty(arr)) {
             return arr;
         }
         int length = end - start + 1;
@@ -19,6 +26,7 @@ public final class MergeSort {
         return merge(left, right);
     }
 
+    // Made package-private for unit testing
     static int[] merge(int[] arr1, int[] arr2) {
         if (arr1 == null || arr1.length == 0) {
             return arr2;
